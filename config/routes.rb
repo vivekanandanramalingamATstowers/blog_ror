@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   
 	resources :projects do
 		resources :todo_lists
-		resources :todo, only: [:show, :edit, :update, :destroy, :new, :create]
+		resources :todo
 	end
-	resources :todo, only: [:index]
+	
 	get '/projects/:id/todo', to: 'projects/todo#specific_index'
 	
   root 'welcome#index'
