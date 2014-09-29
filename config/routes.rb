@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 		resources :todo
 	end
 	
-	get '/projects/:id/todo', to: 'projects/todo#specific_index'
 	
   root 'welcome#index'
 
