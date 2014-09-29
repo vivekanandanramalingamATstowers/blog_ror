@@ -1,0 +1,52 @@
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @project.text %>
+</p>
+<h2>Todo_lists</h2>
+<% @project.todo_lists.each do |todo_list| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= todo_list.commenter %>
+  </p>
+ 
+  <p>
+    <strong>todo_list:</strong>
+    <%= todo_list.body %>
+  </p>
+<% end %>
+<h2>Todos</h2>
+<% @project.todo.each do |todo| %>
+  <% if todo.done== false %>
+  <p>
+    <strong>todos:</strong>
+    <%= todo.task %>
+  </p>
+  <% else %>
+  <p>
+    <strong>todone:</strong>
+    <%= todo.task %>
+  </p>
+  <% end %>
+<% end %>
+<h2>Add a todo_list:</h2>
+<%= form_for([@project, @project.todo_lists.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<h2>Add a todo:</h2>
+<%= link_to 'New_todo', new_project_todo_path(@project) %>
+<%= link_to 'Back', projects_path %>

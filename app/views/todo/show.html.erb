@@ -1,0 +1,22 @@
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<h2>Todos</h2>
+<% @project.todo.each do |todo| %>
+  <% if todo.done== false %>
+  <p>
+    <strong>todos:</strong>
+    <%= todo.task %>
+  </p>
+  <% else %>
+  <p>
+    <strong>todone:</strong>
+    <%= todo.task %>
+  </p>
+  <% end %>
+<% end %>
+
+<%= link_to 'New_todo', new_project_todo_path(@project) %>
+<%= link_to 'Back', projects_path %>

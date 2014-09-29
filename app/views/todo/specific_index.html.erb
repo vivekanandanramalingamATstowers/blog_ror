@@ -1,0 +1,16 @@
+<h2>Todo</h2>
+<h4>Todos:</h4>
+<% @project.todo.each do |todos| %>
+  <td>
+    <strong><%= todos.task %></strong>
+	<strong><%= todos.duedate %></strong>
+  </td>
+<% end %>
+<h4>Todone:</h4>
+<% @todone.each do |todone| %>
+  <td>
+    <strong><%= todone.task %></strong>
+	<strong><%= todone.duedate %></strong>
+  </td>
+<% end %>
+<%= link_to 'Back', projects_path %>
