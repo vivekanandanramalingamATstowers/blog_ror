@@ -31,11 +31,9 @@ def index
   @projects = Project.all
 end
 def destroy
-  @project = Project.find(params[:id])
-  @project.destroy
+    @project.destroy
  
-  redirect_to projects_path
-end
+    end
 private
   def project_params
     params.require(:project).permit(:title, :text)
