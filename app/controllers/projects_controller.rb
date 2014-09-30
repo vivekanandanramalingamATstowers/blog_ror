@@ -34,7 +34,7 @@ def destroy
   @project = Project.find(params[:id])
   @project.destroy
  
-  redirect_to root
+  redirect_to projects_path
 end
 private
   def project_params
