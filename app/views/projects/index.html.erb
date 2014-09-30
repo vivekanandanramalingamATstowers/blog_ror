@@ -1,3 +1,46 @@
 <h1>All Major Projects</h1>
 <%= link_to 'New project', new_project_path %>
 
+
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+	<th>Todos</th>
+	
+    <th colspan="6"></th>
+  </tr>
+ 
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.title %></td>
+    <td><%= project.text %></td>
+<td>
+<% project.todo.each do |todo| %>
+  
+  <% if todo.done== false %>
+   <strong>todos:</strong><br>
+    <%= todo.task %><br>
+	<%= todo.duedate %><br>
+	<%= todo.duetime%><br>
+	<% end %>
+	<% end %>
+
+<% project.todo.each do |todo| %>
+  
+  <% if todo.done== true %>
+  <strong>todone:</strong><br>
+  <%= todo.task %><br>
+  <% end %>
+</td>
+  
+
+<% end %>
+    <td><%= link_to 'Show', project_path(project) %></td>
+    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= link_to 'Destroy', project_path(project),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table
