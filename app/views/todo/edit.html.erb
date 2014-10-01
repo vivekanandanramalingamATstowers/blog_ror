@@ -1,6 +1,6 @@
 <h1>Editing Todo</h1>
  
-<%= form_for :todo, url: project_todo_path(project_id:params[:project_id],id: params[:todo_id]), html: { method: :patch } do |f| %>
+<%= form_for :todo, url: project_todo_path(project_id:params[:project_id],id: params[:id]), html: { method: :patch } do |f| %>
   <p>
     <%= f.label :task %><br>
     <%= f.text_field :task %>

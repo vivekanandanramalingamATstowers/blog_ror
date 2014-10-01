@@ -27,7 +27,7 @@ def create
 end
 
 def edit
-  @todo=Todo.find(params[:todo_id])
+  @todo=Todo.find(params[:id])
 end
 
  def destroy

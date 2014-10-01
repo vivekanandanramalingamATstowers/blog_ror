@@ -16,8 +16,8 @@
   <th>
     <strong>todos:</strong>
     <%= todo.task %>
-	<td><%= link_to 'Done', update_status_project_todo_path(project_id: params[:id],todo_id: todo.id), method: :patch %></td>
-	<td><%= link_to 'Edit', edit_project_todo_path(project_id: params[:id],todo_id: todo.id), method: :get  %></td>
+	<td><%= button_to 'Done', update_status_project_todo_path(project_id: params[:id],todo_id: todo.id), method: :patch %></td>
+	<td><%= button_to 'Edit', edit_project_todo_path(project_id: params[:id],id: todo.id), method: :get  %></td>
 	<td><%= button_to 'Destroy', project_todo_path(project_id: params[:id],todo_id: todo.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </th>
   
@@ -33,7 +33,7 @@
   <th>
     <strong>todone:</strong>
     <%= todo.task %>
-	<td><%= link_to 'Undone', update_status_project_todo_path(project_id: params[:id],todo_id: todo.id), method: :patch %></td>
+	<td><%= button_to 'Undone', update_status_project_todo_path(project_id: params[:id],todo_id: todo.id), method: :patch %></td>
 	<td><%= button_to 'Destroy', project_todo_path(project_id: params[:id],todo_id: todo.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </th>
   <% end %>
