@@ -4,49 +4,40 @@
 </p>
  
 <p>
-  <strong>Text:</strong>
+  <strong>Aim:</strong>
   <%= @project.text %>
 </p>
-<h2>Todo_lists</h2>
-<% @project.todo_lists.each do |todo_list| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= todo_list.commenter %>
-  </p>
- 
-  <p>
-    <strong>todo_list:</strong>
-    <%= todo_list.body %>
-  </p>
-<% end %>
+
 <h2>Todos</h2>
+<table>
 <% @project.todo.each do |todo| %>
+<tr>
   <% if todo.done== false %>
-  <p>
+  <th>
     <strong>todos:</strong>
     <%= todo.task %>
-  </p>
-  <% else %>
-  <p>
+	<td><%= link_to 'Done', project_todo_path(project_id: params[:id],todo_id: todo.id), method: :put  %></td>
+	<td><%= button_to 'Destroy', project_todo_path(project_id: params[:id],todo_id: todo.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </th>
+  
+  <% end %>
+  </tr>
+<% end %>
+</table>
+<table>
+<% @project.todo.each do |todo| %>
+<tr>
+  <% if todo.done== true %>
+  
+  <th>
     <strong>todone:</strong>
     <%= todo.task %>
-  </p>
+	<td><%= button_to 'Destroy', project_todo_path(project_id: params[:id],todo_id: todo.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </th>
   <% end %>
+  </tr>
 <% end %>
-<h2>Add a todo_list:</h2>
-<%= form_for([@project, @project.todo_lists.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+</table>
 <h2>Add a todo:</h2>
 <%= link_to 'New_todo', new_project_todo_path(@project) %>
 <%= link_to 'Back', projects_path %>

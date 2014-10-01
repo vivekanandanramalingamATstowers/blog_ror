@@ -20,16 +20,6 @@ ActiveRecord::Schema.define(version: 20140925204607) do
     t.datetime "updated_at"
   end
 
-  create_table "todo_lists", force: true do |t|
-    t.string   "commenter"
-    t.text     "body"
-    t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "todo_lists", ["project_id"], name: "index_todo_lists_on_project_id"
-
   create_table "todos", force: true do |t|
     t.string   "task"
     t.boolean  "done",       default: false
