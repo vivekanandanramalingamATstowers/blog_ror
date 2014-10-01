@@ -3,8 +3,11 @@ def index
 	@todos= Todo.where(done: false)
 	@todone= Todo.where(done: true)
 end
-def change_status
-	@project=Project.find(id: params[:project_id])
+def update_status
+	@todo=Todo.find(params[:todo_id])
+  @todo.update(done: !@todo.done)
+  
+  redirect_to project_path(id: params[:project_id])
 	
 end
 def show

@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   get 'welcome/index'
   
 	resources :projects do
-		resources :todo
+		resources :todo do
+		member do
+		patch 'update_status'
+		end
+		end
 	end
-	
+
 	
   root 'welcome#index'
 
