@@ -1,0 +1,21 @@
+<h1>Editing Todo</h1>
+ 
+<%= form_for :todo, url: project_todo_path(project_id:params[:project_id],id: params[:todo_id]), html: { method: :patch } do |f| %>
+  <p>
+    <%= f.label :task %><br>
+    <%= f.text_field :task %>
+  </p>
+<p>
+    <%= f.label :duetime %><br>
+    <%= f.time_field :duetime %>
+</p>
+<p>
+    <%= f.label :duedate %><br>
+    <%= f.date_field :duedate %>
+</p>
+<%= f.hidden_field :project_id, value: params[:project_id] %>
+<p>
+    <%= f.submit %>
+</p>
+<% end %>
+<%= link_to 'Back', project_path(Project.find(params[:project_id])) %>
