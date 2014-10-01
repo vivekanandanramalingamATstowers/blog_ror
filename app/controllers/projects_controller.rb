@@ -37,7 +37,7 @@ def destroy
   redirect_to projects_path
 end
 private
-	def set_widget
+	def set_project
       @project = Project.find(params[:id])
     end
   def project_params
