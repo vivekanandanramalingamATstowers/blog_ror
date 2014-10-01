@@ -21,21 +21,24 @@ def create
   else
     render 'new'
   end
-  
- 
+end
+
+def edit
+  @todo=Todo.find(params[:todo_id])
 end
 
  def destroy
- 
+  
   @todo=Todo.find(params[:todo_id])
   @todo.destroy
   
   redirect_to project_path(id: params[:project_id])
 end
+
  def update
  
-  @todo=Todo.find(params[:todo_id])
-  @todo.update(done: TRUE)
+  @todo=Todo.find(params[:id])
+  @todo.update(todo_params)
   
   redirect_to project_path(id: params[:project_id])
 end

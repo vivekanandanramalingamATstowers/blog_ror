@@ -16,7 +16,7 @@
   <th>
     <strong>todos:</strong>
     <%= todo.task %>
-	<td><%= link_to 'Done', project_todo_path(project_id: params[:id],todo_id: todo.id), method: :put  %></td>
+	<td><%= link_to 'Edit', edit_project_todo_path(project_id: params[:id],todo_id: todo.id), method: :get  %></td>
 	<td><%= button_to 'Destroy', project_todo_path(project_id: params[:id],todo_id: todo.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </th>
   
