@@ -37,9 +37,9 @@
   
 
 <% end %>
-    <td><%= link_to 'Show', project_path(project) %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', controller: "projects", action: "show" %></td>
+    <td><%= button_to 'Show', project_path(project), method: :get %></td>
+    <td><%= button_to 'Edit', edit_project_path(project), method: :get  %></td>
+    <td><%= button_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table
