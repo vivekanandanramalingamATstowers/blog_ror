@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-before_action :set_widget, only: [:show, :edit, :update, :destroy]
+before_action :set_project, only: [:show, :edit, :update, :destroy]
 def new
 @project = Project.new
 end
