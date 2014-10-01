@@ -24,18 +24,27 @@ def update
   end
 end
 def show
-  @project = Project.find(params[:id])
+  
   
 end
 def index
   @projects = Project.all
 end
 def destroy
-    @project.destroy
+  
+  @project.destroy
  
-    end
+  redirect_to projects_path
+end
 private
+	def set_widget
+      @project = Project.find(params[:id])
+    end
   def project_params
     params.require(:project).permit(:title, :text)
   end
+  
+ 
+    
+
 end
