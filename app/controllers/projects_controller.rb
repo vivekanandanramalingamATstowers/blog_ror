@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 before_action :set_project, only: [:show, :edit, :update, :destroy]
 def new
-@project = Project.new
+@project = Project.new(parent_id: params[:parent_id])
 end
 def create
   @project = Project.new(project_params)
@@ -42,7 +42,7 @@ private
       @project = Project.find(params[:id])
     end
   def project_params
-    params.require(:project).permit(:title, :text)
+    params.require(:project).permit(:title, :text, :ancestry, :parent_id)
   end
   
  

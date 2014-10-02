@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+html, body {
+  background-color: white;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+
+.nested_projects {
+  margin-left: 30px;
+}
+
+.nested_projects .nested_projects .nested_projects .nested_projects {
+  margin-left: 0;
+}

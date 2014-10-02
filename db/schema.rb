@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925204607) do
+ActiveRecord::Schema.define(version: 20141001102016) do
 
   create_table "projects", force: true do |t|
     t.string   "title"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ancestry"
   end
+
+  add_index "projects", ["ancestry"], name: "index_projects_on_ancestry"
 
   create_table "todos", force: true do |t|
     t.string   "task"
